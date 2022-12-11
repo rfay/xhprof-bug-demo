@@ -5,7 +5,7 @@ It's a demo with [DDEV](https://github.com/drud/ddev).
 
 To demonstrate:
 
-1. Install DDEV 
+1. Install DDEV on Linux host. I used Ubuntu, [docker installation](https://ddev.readthedocs.io/en/latest/users/install/docker-installation/#linux) and [ddev installation](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/#linux)
 2. Check out this repo
 3. `ddev start`
 4. `ddev xhprof on`
