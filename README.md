@@ -9,9 +9,17 @@ To demonstrate:
 2. Check out this repo
 3. `ddev start`
 4. `ddev xhprof on`
-5. `ddev launch`
+5. `ddev exec curl localhost`
 
 Then `ddev logs` will show a coredump having been created in /tmp.
 
-You can get it and inspect it. 
+You can get it and inspect it. For example:
+```
+gdb /usr/sbin/php-fpm8.2 core.1670789386.php-fpm.3373
+bt
+```
 
+Complexities:
+* Since this happens inside a container, the coredump location has to be configured on the host Linux system. 
+  * ~~On macOS host, `docker run -it --rm --privileged --pid=host justincormack/nsenter1` and then `echo '/tmp/core.%t.%e.%p' > /proc/sys/kernel/core_pattern` and `ulimit -c unlimited`~~ I haven't figured out how to capture a core on macOS.
+  * On Linux (I used Ubuntu host), `echo '/tmp/core.%t.%e.%p' | sudo tee /proc/sys/kernel/core_pattern`
