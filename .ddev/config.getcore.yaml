@@ -1,0 +1,7 @@
+web_environment:
+- JUNK1=junk1
+- JUNK2=junk2
+webimage_extra_packages: ["gdb", "systemd-coredump"]
+hooks:
+  post-start:
+  - exec: "echo '/tmp/core.%t.%e.%p' | sudo tee /proc/sys/kernel/core_pattern"
