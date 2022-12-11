@@ -11,9 +11,9 @@ To demonstrate:
 4. `ddev xhprof on`
 5. `ddev exec curl localhost`
 
-Then `ddev logs` will show a coredump having been created in /tmp.
+Then `ddev logs` will show a coredump having been created in /tmp inside the container.
 
-You can get it and inspect it. For example:
+You can get it and inspect it. For example, `ddev ssh` and:
 ```
 gdb /usr/sbin/php-fpm8.2 core.1670789386.php-fpm.3373
 bt
